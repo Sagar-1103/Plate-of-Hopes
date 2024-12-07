@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 const userSchema = new Schema({
     role:{
         type: String,
-        enum: ['provider', 'consumer'],
+        enum: ['Provider', 'Consumer'],
         required: true
     },
     name:{
@@ -23,16 +23,28 @@ const userSchema = new Schema({
         required:true,
     },
     address:{
-        type:String,
-        required:true,
+        block:{
+          type:String,
+        },
+        streetName:{
+          type:String,
+        },
+        city:{
+          type:String,
+        },
+        state:{
+          type:String,
+        },
+        latitute:{
+          type:Number,
+        },
+        longitude:{
+          type:Number,
+        }
     },
     verification_status:{
         type:Boolean,
         default:false,
-    },
-    karmaPoints:{
-        type:Number,
-        default:0,
     },
     profilePicture:{
         imageId:{
@@ -42,10 +54,31 @@ const userSchema = new Schema({
             type:String,
         }
     },
+    documents:[
+      {
+        documentName:{
+          type:String,
+        },
+        documentUrl:{
+          type:String,
+        }
+      }
+    ],
     password:{
         type:String,
         required:true,
-    }
+    },
+    ownerDetails:{
+      name:{
+          type:String,
+      },
+      phone:{
+          type:String,
+      },
+      email:{
+          type:String,
+      }
+  },
 },{timestamps:true})
 
 userSchema.pre("save", async function (next) {

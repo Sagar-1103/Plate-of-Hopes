@@ -3,6 +3,7 @@ import mongoose,{Schema} from "mongoose";
 const foodPostSchema = new Schema({
     foodCategory:{
         type:String,
+        enum:["Veg","Non-Veg"],
         required:true,
     },
     quantity:{
@@ -13,19 +14,9 @@ const foodPostSchema = new Schema({
         type:Number,
         required:true,
     },
-    location:{
-        latitude:{
-            type:Number,
-            required:true,
-        },
-        longitude:{
-            type:Number,
-            required:true,
-        }
-    },
     status:{
         type:String,
-        enum: ["Male", "Staged", "Other"],
+        enum: ["Float", "Stagged", "Freeze"],
     },
     images:[
         {

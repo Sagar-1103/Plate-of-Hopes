@@ -6,7 +6,7 @@ const chatNotificationSchema = new Schema ({
         ref: "User",
         required:true
     },
-    chatId:{
+    roomId:{
         type: Schema.Types.ObjectId,
         ref: "Chat",
         required:true

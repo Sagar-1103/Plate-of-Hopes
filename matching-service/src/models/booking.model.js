@@ -6,21 +6,13 @@ const bookingSchema = new Schema({
         ref:"FoodPost",
         required:true,
     },
-    status:{
-        type:String,
-        enum:[","],
-        required:true,
-    },
-    bookingTime:{
-        type:Date,
-        required:true,
-    },
     consumerId:{
         type:Schema.Types.ObjectId,
         ref:"User",
     },
-    notes:{
-        type:String,
+    producerId:{
+        type:Schema.Types.ObjectId,
+        ref:"User",
     }
 },{timestamps:true})
 

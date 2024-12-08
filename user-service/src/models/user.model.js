@@ -35,7 +35,7 @@ const userSchema = new Schema({
         state:{
           type:String,
         },
-        latitute:{
+        latitude:{
           type:Number,
         },
         longitude:{
@@ -61,12 +61,18 @@ const userSchema = new Schema({
         },
         documentUrl:{
           type:String,
+        },
+        documentId:{
+          type:String,
         }
       }
     ],
     password:{
         type:String,
         required:true,
+    },
+    refreshToken: {
+      type: String,
     },
     ownerDetails:{
       name:{

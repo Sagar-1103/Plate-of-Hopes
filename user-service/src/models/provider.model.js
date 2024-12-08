@@ -17,8 +17,3 @@ const providerSchema = new Schema({
 },{timestamps:true})
 
 export const Provider = mongoose.model("Provider",providerSchema);
-
-
-
-
-
